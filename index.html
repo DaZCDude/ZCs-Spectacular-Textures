@@ -6,30 +6,65 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
     
     <style>
+      *
+      {
+        box-sizing: border-box;
+      }
+
       body
       {
         background-color: #222;
         color: #fff;
         font-family: "Inter", sans-serif;
+        margin: 0;
+        padding: 0;
       }
       .content
       {
-        width: 80%;
+        width: 60%;
+        height: 100%;
         margin: 0 auto;
         display: block;
+        background-color: #333;
+      }
+
+      h1
+      {
+        text-align: center;
+        margin: 0;
+        padding: 25px;
       }
 
       .tex-row
       {
-        width: 100%;
+        display: flex;
+        flex-direction: row;
+        font-size: 30px;
+        text-align: center;
       }
       .tex-row a
       {
-        width: 33.33%;
+        padding: 25px;
+        flex: 25%;
+
+        transition: transform .2s;
       }
+      .tex-row a:hover
+      {
+        transform: scale(1.1);
+      }
+
       .tex-row img
       {
         width: 100%;
+      }
+
+      @media (max-width: 800px)
+      {
+        .tex-row
+        {
+          flex-direction: column;
+        }
       }
     </style>
     
@@ -38,11 +73,13 @@
   </head>
   <body>
     <div class="content">
-      <h1>Welcome to ZC's (thats me) Spectacular Textures (they are very spectacular indeed)</h1>
-      <h2>I don't know anything about licensing and stuff, and I don't care if people resell my textures. Yall can just have them.</h2>
+      <h1>Welcome to ZC's Spectacular Textures</h1>
 
       <div class="tex-row">
-        <a href="textures/T_grass01_albedo.jpg" download><img src="textures/T_grass01_albedo.jpg"></a>
+        <a href="textures/T_danger_sign01/T_danger_sign01_albedo.jpg" download><img src="textures/T_danger_sign01/T_danger_sign01_albedo.jpg"></a>
+        <a href="textures/T_grass01/T_grass01_albedo.jpg" download><img src="textures/T_grass01/T_grass01_albedo.jpg"></a>
+        <a href="textures/T_bricks01/T_bricks01_albedo.jpg" download><img src="textures/T_bricks01/T_bricks01_albedo.jpg"></a>
+        <a href="textures/T_danger_sign01/T_danger_sign01_albedo.jpg" download><img src="textures/T_danger_sign01/T_danger_sign01_albedo.jpg"></a>
       </div>
     </div>
   </body>
