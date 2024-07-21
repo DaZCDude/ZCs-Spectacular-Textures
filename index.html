@@ -1,14 +1,22 @@
-<DOCTYPE HTML>
+<!DOCTYPE HTML>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
-    
+
     <style>
       *
       {
         box-sizing: border-box;
+      }
+
+      html, body {
+        height: 100%;
+        margin: 0;
+        padding: 0;
       }
 
       body
@@ -16,54 +24,127 @@
         background-color: #222;
         color: #fff;
         font-family: "Inter", sans-serif;
-        margin: 0;
-        padding: 0;
+        display: flex;
+        justify-content: center;
+        align-items: flex-start;
       }
+
+      .container {
+        width: 80%;
+        min-height: 100%;
+        display: flex;
+        flex-direction: column;
+        background-color: #333;
+        filter: drop-shadow(0px 5px 10px #111);
+      }
+
       .content
       {
-        width: 60%;
-        height: 100%;
-        margin: 0 auto;
-        display: block;
-        background-color: #333;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
       }
 
       h1
       {
         text-align: center;
+        font-size: 50px;
         margin: 0;
-        padding: 25px;
+        padding: 50px;
       }
 
       .tex-row
       {
+        width: 100%;
+        padding: 0 25px;
         display: flex;
+        flex-wrap: wrap;
         flex-direction: row;
         font-size: 30px;
-        text-align: center;
+        justify-content: space-between;
+        align-items: center;
+        gap: 10px;
       }
+
       .tex-row a
       {
-        padding: 25px;
-        flex: 25%;
-
+        max-width: 300px;
+        max-height: 300px;
+        padding: 10px;
+        flex: 1 1 calc(20% - 20px);
         transition: transform .2s;
       }
+
       .tex-row a:hover
       {
-        transform: scale(1.1);
+        transform: scale(1.05);
       }
 
       .tex-row img
       {
+        width: 300px;
+        height: 300px;
+        object-fit: contain;
+        border-radius: 10%;
+        transition: border-radius .1s;
+        filter: drop-shadow(0px 5px 10px #111);
+      }
+
+      .tex-row img:hover
+      {
+        border-radius: 5%;
+      }
+
+      footer
+      {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         width: 100%;
+        background-color: #444;
+        color: white;
+        text-align: center;
+        padding: 10px 0;
+        margin-top: 50px;
+      }
+
+      .footer-side
+      {
+        padding: 0 25px;
+      }
+
+      .footer-side a
+      {
+        text-decoration: none;
+        color: #fff;
+        background-color: #222;
+        border-radius: 25px;
+        padding: 10px;
+        transition: background-color .1s;
+      }
+
+      .footer-side a:hover
+      {
+        background-color: #333;
       }
 
       @media (max-width: 800px)
       {
+        .container
+        {
+          width: 100%;
+        }
+
         .tex-row
         {
           flex-direction: column;
+          align-items: center;
+        }
+
+        .tex-row a
+        {
+          flex: 1 1 auto;
+          margin-bottom: 10px;
         }
       }
     </style>
@@ -72,15 +153,30 @@
     <title>ZC's Spectacular Textures</title>
   </head>
   <body>
-    <div class="content">
-      <h1>Welcome to ZC's Spectacular Textures</h1>
+    <div class="container">
+      <div class="content">
+        <h1>Welcome to ZC's Spectacular Textures</h1>
 
-      <div class="tex-row">
-        <a href="textures/T_danger_sign01/T_danger_sign01_albedo.jpg" download><img src="textures/T_danger_sign01/T_danger_sign01_albedo.jpg"></a>
-        <a href="textures/T_grass01/T_grass01_albedo.jpg" download><img src="textures/T_grass01/T_grass01_albedo.jpg"></a>
-        <a href="textures/T_bricks01/T_bricks01_albedo.jpg" download><img src="textures/T_bricks01/T_bricks01_albedo.jpg"></a>
-        <a href="textures/T_danger_sign01/T_danger_sign01_albedo.jpg" download><img src="textures/T_danger_sign01/T_danger_sign01_albedo.jpg"></a>
+        <div class="tex-row">
+          <a href="textures/T_grass01/T_grass01_albedo.jpg" download><img src="textures/T_grass01/T_grass01_albedo.jpg" alt="grass"></a>
+          <a href="textures/T_bricks01/T_bricks01_albedo.jpg" download><img src="textures/T_bricks01/T_bricks01_albedo.jpg" alt="bricks"></a>
+          <a href="textures/T_wall01/T_wall01_albedo.jpg" download><img src="textures/T_wall01/T_wall01_albedo.jpg" alt="wall"></a>
+          <a href="textures/T_door01/T_door01_albedo.jpg" download><img src="textures/T_door01/T_door01_albedo.jpg" alt="door"></a>
+          <a href="textures/T_danger_sign01.zip" download><img src="textures/T_danger_sign01/T_danger_sign01_albedo.jpg" alt="danger sign"></a>
+          <a href="textures/T_ruler/T_ruler_albedo.jpg" download><img src="textures/T_ruler/T_ruler_albedo.jpg" alt="ruler"></a>
+          <a href="textures/T_leaf01.zip" download><img src="textures/T_leaf01/T_leaf01_PNG.png" alt="ruler"></a>
+        </div>
       </div>
+      
+      <footer>
+        <div class="footer-side">
+          <p>© ZC 2024</p>
+        </div>
+        <div class="footer-side">
+          <a href="https://youtube.com/thezcgamer" target="_blank">YouTube</a>
+          <a href="https://discord.gg/aSD2rGegfQ" target="_blank">Discord</a>
+        </div>
+      </footer>
     </div>
   </body>
 </html>
