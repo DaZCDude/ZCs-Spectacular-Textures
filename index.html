@@ -113,26 +113,35 @@
         background-color: #444;
         color: white;
         text-align: center;
-        padding: 10px 0;
         margin-top: 50px;
       }
 
       .footer-side
       {
-        padding: 0 25px;
+        padding: 20px 25px;
       }
 
-      .footer-side a
+      .license
+      {
+        text-decoration: none;
+        color: #fff;
+      }
+      .license:hover
+      {
+        text-decoration: underline;
+      }
+
+      .footer-link
       {
         text-decoration: none;
         color: #fff;
         background-color: #222;
         border-radius: 25px;
-        padding: 10px;
+        padding: 10px 20px;
         transition: background-color .1s;
       }
 
-      .footer-side a:hover
+      .footer-link:hover
       {
         background-color: #333;
       }
@@ -180,12 +189,13 @@
       
       <footer>
         <div class="footer-side">
-          <p>© ZC 2024</p>
+          <a class="footer-link" href="mailto:support@zctextures.com">E-Mail</a>
+          <a class="footer-link" href="https://store.steampowered.com/app/2224910/Auver" target="_blank">Steam</a>
+          <a class="footer-link" href="https://youtube.com/thezcgamer" target="_blank">YouTube</a>
+          <a class="footer-link" href="https://discord.gg/aSD2rGegfQ" target="_blank">Discord</a>
         </div>
         <div class="footer-side">
-          <a href="https://store.steampowered.com/app/2224910/Auver" target="_blank">Check out my game 'Auver' on Steam!</a>
-          <a href="https://youtube.com/thezcgamer" target="_blank">YouTube</a>
-          <a href="https://discord.gg/aSD2rGegfQ" target="_blank">Discord</a>
+          <a class="license" href="LICENSE">© ZC 2024</a>
         </div>
       </footer>
     </div>
