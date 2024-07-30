@@ -8,8 +8,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     
     <!-- Its 12AM, im making this page, and writing this html on my phone... im tired :( -->
-    <title>ZC's Spectacular Textures</title>
+    <title>ZC's Spectacular Textures | Home</title>
     
+    <link rel="stylesheet" href="core-style.css">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&display=swap" rel="stylesheet">
@@ -17,65 +19,35 @@
     <meta name="google-adsense-account" content="ca-pub-7008705660463008">
     
     <style>
-      *
+      input[type='text']
       {
-        box-sizing: border-box;
-      }
-
-      html, body {
-        height: 100%;
-        margin: 0;
-        padding: 0;
-      }
-
-      body
-      {
-        background-color: #222;
-        color: #fff;
         font-family: "Inter", sans-serif;
-        display: flex;
-        justify-content: center;
-        align-items: flex-start;
       }
 
-      .container {
-        width: 80%;
-        min-height: 100%;
-        display: flex;
-        flex-direction: column;
+      #searchInput
+      {
+        border-radius: 10px;
+        color: #fff;
         background-color: #333;
-        filter: drop-shadow(0px 5px 10px #111);
-      }
-
-      .content
-      {
-        flex: 1;
-        display: flex;
-        flex-direction: column;
-      }
-
-      h1
-      {
+        outline: none;
         text-align: center;
-        font-size: 50px;
-        margin: 0;
-        padding: 50px;
+        width: 600px;
+        height: 40px;
+        border: 0;
       }
 
       .tex-row
       {
         width: 100%;
         padding: 0 25px;
-        display: flex;
-        flex-wrap: wrap;
-        flex-direction: row;
-        font-size: 30px;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
+        
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 300px);
+        gap: 20px;
+        justify-content: center;
       }
 
-      .tex-row a
+      .texture-item
       {
         max-width: 300px;
         max-height: 300px;
@@ -84,7 +56,7 @@
         transition: transform .2s;
       }
 
-      .tex-row a:hover
+      .texture-item:hover
       {
         transform: scale(1.05);
       }
@@ -104,102 +76,67 @@
         border-radius: 5%;
       }
 
-      footer
-      {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        width: 100%;
-        background-color: #444;
-        color: white;
-        text-align: center;
-        margin-top: 50px;
-      }
-
-      .footer-side
-      {
-        padding: 20px 25px;
-      }
-
-      .license
-      {
-        text-decoration: none;
-        color: #fff;
-      }
-      .license:hover
-      {
-        text-decoration: underline;
-      }
-
-      .footer-link
-      {
-        text-decoration: none;
-        color: #fff;
-        background-color: #222;
-        border-radius: 25px;
-        padding: 10px 20px;
-        transition: background-color .1s;
-      }
-
-      .footer-link:hover
-      {
-        background-color: #333;
-      }
-
       @media (max-width: 850px)
       {
-        .container
+        #searchInput
         {
-          width: 100%;
-        }
-
-        .tex-row
-        {
-          flex-direction: column;
-          align-items: center;
-        }
-        .tex-row a
-        {
-          flex: 1 1 auto;
-          margin-bottom: 10px;
-        }
-
-        footer
-        {
-          flex-direction: column;
+          width: 95%;
         }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="content">
+      <header>
         <h1>Welcome to ZC's Spectacular Textures</h1>
 
-        <div class="tex-row">
-          <a href="textures/T_grass01/T_grass01_albedo.jpg" download><img loading="lazy" src="web-images/T_grass01_OPT.webp" alt="grass01"></a>
-          <a href="textures/T_bricks01/T_bricks01_albedo.jpg" download><img loading="lazy" src="web-images/T_bricks01_OPT.webp" alt="bricks01"></a>
-          <a href="textures/T_wall01/T_wall01_albedo.jpg" download><img loading="lazy" src="web-images/T_wall01_OPT.webp" alt="wall01"></a>
-          <a href="textures/T_floor01/T_floor01_albedo.jpg" download><img loading="lazy" src="web-images/T_floor01_OPT.webp" alt="floor01"></a>
-          <a href="textures/T_door01/T_door01_albedo.jpg" download><img loading="lazy" src="web-images/T_door01_OPT.webp" alt="door01"></a>
-          <a href="textures/T_danger_sign01_zip.zip" download><img loading="lazy" src="web-images/T_danger_sign01_OPT.webp" alt="danger sign01"></a>
-          <a href="textures/T_ruler/T_ruler_albedo.jpg" download><img loading="lazy" src="web-images/T_ruler_OPT.webp" alt="ruler"></a>
-          <a href="textures/T_leaf01_zip.zip" download><img loading="lazy" src="web-images/T_leaf01_OPT.webp" alt="leaf01"></a>
-          <a href="textures/HDRIs/HDRI01.jpg" download><img loading="lazy" src="web-images/HDRI01_OPT.webp" alt="hdri01"></a>
+        <input type="text" id="searchInput" placeholder="Search for textures...">
+      </header>
+
+      <div class="content">
+        <div class="tex-row" id="textureContainer">
+          <a class="texture-item" data-keywords="grass" href="textures/T_grass01/T_grass01_albedo.jpg" download><img loading="lazy" src="web-images/T_grass01_OPT.webp" alt="grass01"></a>
+          <a class="texture-item" data-keywords="bricks" href="textures/T_bricks01/T_bricks01_albedo.jpg" download><img loading="lazy" src="web-images/T_bricks01_OPT.webp" alt="bricks01"></a>
+          <a class="texture-item" data-keywords="wall" href="textures/T_wall01/T_wall01_albedo.jpg" download><img loading="lazy" src="web-images/T_wall01_OPT.webp" alt="wall01"></a>
+          <a class="texture-item" data-keywords="floor" href="textures/T_floor01/T_floor01_albedo.jpg" download><img loading="lazy" src="web-images/T_floor01_OPT.webp" alt="floor01"></a>
+          <a class="texture-item" data-keywords="door" href="textures/T_door01/T_door01_albedo.jpg" download><img loading="lazy" src="web-images/T_door01_OPT.webp" alt="door01"></a>
+          <a class="texture-item" data-keywords="danger sign" href="textures/T_danger_sign01_zip.zip" download><img loading="lazy" src="web-images/T_danger_sign01_OPT.webp" alt="danger sign01"></a>
+          <a class="texture-item" data-keywords="ruler" href="textures/T_ruler/T_ruler_albedo.jpg" download><img loading="lazy" src="web-images/T_ruler_OPT.webp" alt="ruler"></a>
+          <a class="texture-item" data-keywords="leaf" href="textures/T_leaf01_zip.zip" download><img loading="lazy" src="web-images/T_leaf01_OPT.webp" alt="leaf01"></a>
+          <a class="texture-item" data-keywords="hdri" href="textures/HDRIs/HDRI01.jpg" download><img loading="lazy" src="web-images/HDRI01_OPT.webp" alt="hdri01"></a>
         </div>
       </div>
       
       <footer>
         <div class="footer-side">
-          <a class="footer-link" href="mailto:support@zctextures.com">E-Mail</a>
-          <a class="footer-link" href="https://store.steampowered.com/app/2224910/Auver" target="_blank">Steam</a>
-          <a class="footer-link" href="https://youtube.com/thezcgamer" target="_blank">YouTube</a>
-          <a class="footer-link" href="https://discord.gg/aSD2rGegfQ" target="_blank">Discord</a>
+          <a class="button" href="about.html">About</a>
         </div>
         <div class="footer-side">
           <a class="license" href="LICENSE">© ZC 2024</a>
         </div>
       </footer>
     </div>
+
+    <script>
+      document.getElementById('searchInput').addEventListener('input', function()
+      {
+          const filter = this.value.toLowerCase();
+          const texturerow = document.getElementById('textureContainer');
+          const items = texturerow.getElementsByClassName('texture-item');
+
+          Array.from(items).forEach(function(item)
+          {
+              const keywords = item.getAttribute('data-keywords').toLowerCase();
+              if (keywords.includes(filter))
+              {
+                  item.style.display = '';
+              }
+              else
+              {
+                  item.style.display = 'none';
+              }
+          });
+      });
+    </script>
   </body>
 </html>
