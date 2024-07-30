@@ -1,0 +1,115 @@
+*
+{
+    box-sizing: border-box;
+}
+
+html, body
+{
+    height: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+body
+{
+    background-color: #222;
+    color: #fff;
+    font-family: "Inter", sans-serif;
+}
+
+.container
+{
+    margin: auto;
+    width: 80%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    background-color: #333;
+    filter: drop-shadow(0px 5px 10px #111);
+}
+.content
+{
+    flex: 1;
+}
+
+/* For all buttons on the website */
+.button
+{
+    text-decoration: none;
+    color: #fff;
+    background-color: #222;
+    border-radius: 25px;
+    padding: 10px 20px;
+    transition: background-color .1s;
+}
+.button:hover
+{
+    background-color: #333;
+}
+#button-alt:hover{
+    background-color: #444;
+}
+
+header
+{
+    position: sticky;
+    top: 0;
+    z-index: 10;
+
+    display: flex;
+    flex-direction: column;
+    background-color: #444;
+    align-items: center;
+    padding: 20px 0;
+    margin-bottom: 20px;
+    filter: drop-shadow(0px 1px 10px #11111167);
+}
+h1
+{
+    font-size: 25px;
+    margin: 0 0 20px 0;
+    padding-left: 20px;
+    text-align: center;
+}
+
+/* Footer */
+footer
+{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+    background-color: #444;
+    color: white;
+    text-align: center;
+    margin-top: 50px;
+}
+
+.footer-side
+{
+    padding: 20px 25px;
+}
+
+.license
+{
+    text-decoration: none;
+    color: #fff;
+}
+.license:hover
+{
+    text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 850px)
+{
+    .container
+    {
+        width: 100%;
+    }
+
+    footer
+    {
+        flex-direction: column;
+    }
+}
