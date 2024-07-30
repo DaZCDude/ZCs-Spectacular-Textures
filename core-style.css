@@ -115,4 +115,8 @@ footer
     {
         flex-direction: column;
     }
+    .footer-side
+    {
+        flex-directon: column;
+    }
 }
