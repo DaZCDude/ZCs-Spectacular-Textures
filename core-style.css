@@ -16,6 +16,11 @@ html, body
   src: url(opensans.ttf);
 }
 
+input[type='text']
+{
+    font-family: OpenSans;
+}
+
 body
 {
     background-color: #222;
