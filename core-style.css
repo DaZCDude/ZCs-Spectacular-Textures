@@ -12,8 +12,9 @@ html, body
 
 @font-face
 {
-  font-family: OpenSans;
-  src: url(opensans.ttf);
+    font-family: OpenSans;
+    src: url(opensans.ttf);
+    font-display: swap;
 }
 
 input[type='text']
