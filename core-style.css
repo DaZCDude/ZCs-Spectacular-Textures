@@ -10,11 +10,17 @@ html, body
     padding: 0;
 }
 
+@font-face
+{
+  font-family: OpenSans;
+  src: url(opensans.ttf);
+}
+
 body
 {
     background-color: #222;
     color: #fff;
-    font-family: "Inter", sans-serif;
+    font-family: OpenSans;
 }
 
 .container
