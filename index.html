@@ -41,31 +41,41 @@
       {
         max-width: 300px;
         max-height: 300px;
-        padding: 10px;
         flex: 1 1 calc(20% - 20px);
-        transition: transform .2s;
+        border-radius: 10%;
+        overflow: hidden;
+        transition: border-radius .1s, transform .2s;
+        filter: drop-shadow(0px 5px 5px #111);
       }
-
       .texture-item:hover
       {
         transform: scale(1.05);
+        border-radius: 5%;
       }
 
       .tex-row img
       {
-        width: 300px;
-        height: 300px;
+        width: 100%;
+        height: 100%;
         object-fit: contain;
-        border-radius: 10%;
-        transition: border-radius .1s;
-        filter: drop-shadow(0px 5px 5px #111);
       }
-
-      .tex-row img:hover
+      .tex-row a
       {
-        border-radius: 5%;
+        position: relative;
       }
 
+      .texture-text
+      {
+        position: absolute;
+    		bottom: -10px;
+    		background-color: rgba(25, 25, 25, 0.70);
+    		width: 100%;
+    		height: 50px;
+    		padding-top: 10px;
+    		text-align: center;
+    		color: #fff;
+      }
+      
       @media (max-width: 850px)
       {
         #searchInput
@@ -85,21 +95,76 @@
 
       <div class="content">
         <div class="tex-row" id="textureContainer">
-          <a class="texture-item" data-keywords="grass ground lawn turf green vegetation foliage nature surface seamless" href="textures/T_grass01_zip.zip" download><img loading="lazy" src="web-images/T_grass01_OPT.webp" alt="grass01"></a>
-          <a class="texture-item" data-keywords="bricks wall surface building seamless red" href="textures/T_bricks01_zip.zip" download><img loading="lazy" src="web-images/T_bricks01_OPT.webp" alt="bricks01"></a>
-          <a class="texture-item" data-keywords="wall surface seamless grey gray" href="textures/T_wall01/T_wall01_albedo.jpg" download><img loading="lazy" src="web-images/T_wall01_OPT.webp" alt="wall01"></a>
-          <a class="texture-item" data-keywords="wall surface seamless grey gray wallpaper sawdust indoor" href="textures/T_wall02_zip.zip" download><img loading="lazy" src="web-images/T_wall02_OPT.webp" alt="wall02"></a>
-          <a class="texture-item" data-keywords="floor surface seamless grey gray white" href="textures/T_floor01_zip.zip" download><img loading="lazy" src="web-images/T_floor01_OPT.webp" alt="floor01"></a>
-          <a class="texture-item" data-keywords="floor surface seamless wall wood tree planks board timber" href="textures/T_wood01_zip.zip" download><img loading="lazy" src="web-images/T_wood01_OPT.webp" alt="wood01"></a>
-          <a class="texture-item" data-keywords="floor surface ground pebble pavement seamless" href="textures/T_pebble_pavement01_zip.zip" download><img loading="lazy" src="web-images/T_pebble_pavement01_OPT.webp" alt="pebblepavement01"></a>
-          <a class="texture-item" data-keywords="floor surface ground concrete wall moon rock seamless grey gray" href="textures/T_concrete01_zip.zip" download><img loading="lazy" src="web-images/T_concrete01_OPT.webp" alt="concrete01"></a>
-          <a class="texture-item" data-keywords="wall surface fabric bulletin board seamless cloth indoor grey gray" href="textures/T_fabric01_zip.zip" download><img loading="lazy" src="web-images/T_fabric01_OPT.webp" alt="fabric01"></a>
-          <a class="texture-item" data-keywords="door grey gray entrance" href="textures/T_door01/T_door01_albedo.jpg" download><img loading="lazy" src="web-images/T_door01_OPT.webp" alt="door01"></a>
-          <a class="texture-item" data-keywords="danger sign warning caution hazard symbol risk safety" href="textures/T_danger_sign01_zip.zip" download><img loading="lazy" src="web-images/T_danger_sign01_OPT.webp" alt="danger sign01"></a>
-          <a class="texture-item" data-keywords="ruler" href="textures/T_ruler/T_ruler_albedo.jpg" download><img loading="lazy" src="web-images/T_ruler_OPT.webp" alt="ruler"></a>
-          <a class="texture-item" data-keywords="leaf foliage green nature plant vegetation" href="textures/T_leaf01_zip.zip" download><img loading="lazy" src="web-images/T_leaf01_OPT.webp" alt="leaf01"></a>
-          <a class="texture-item" data-keywords="hdri sky nature skybox" href="textures/HDRIs/HDRI01.jpg" download><img loading="lazy" src="web-images/HDRI01_OPT.webp" alt="hdri01"></a>
-
+          <a class="texture-item" data-keywords="grass ground lawn turf green vegetation foliage nature surface seamless" href="textures/T_grass01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_grass01_OPT.webp" alt="grass01">
+            <div class="texture-text">Grass</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="bricks wall surface building seamless red" href="textures/T_bricks01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_bricks01_OPT.webp" alt="bricks01">
+            <div class="texture-text">Red Bricks</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="wall surface seamless grey gray" href="textures/T_wall01/T_wall01_albedo.jpg" download>
+            <img loading="lazy" src="web-images/T_wall01_OPT.webp" alt="wall01">
+            <div class="texture-text">Grey Wall</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="wall surface seamless grey gray wallpaper sawdust indoor" href="textures/T_wall02_zip.zip" download>
+            <img loading="lazy" src="web-images/T_wall02_OPT.webp" alt="wall02">
+            <div class="texture-text">Grey Wallpaper</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="floor surface seamless grey gray white" href="textures/T_floor01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_floor01_OPT.webp" alt="floor01">
+            <div class="texture-text">Floor</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="floor surface seamless wall wood tree planks board timber" href="textures/T_wood01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_wood01_OPT.webp" alt="wood01">
+            <div class="texture-text">Wood Planks</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="floor surface ground pebble pavement seamless" href="textures/T_pebble_pavement01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_pebble_pavement01_OPT.webp" alt="pebblepavement01">
+            <div class="texture-text">Pebble Pavement</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="floor surface ground concrete wall moon rock seamless grey gray" href="textures/T_concrete01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_concrete01_OPT.webp" alt="concrete01">
+            <div class="texture-text">Grey Concrete</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="wall surface fabric bulletin board seamless cloth indoor grey gray" href="textures/T_fabric01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_fabric01_OPT.webp" alt="fabric01">
+            <div class="texture-text">Grey Fabric</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="door grey gray entrance" href="textures/T_door01/T_door01_albedo.jpg" download>
+            <img loading="lazy" src="web-images/T_door01_OPT.webp" alt="door01">
+            <div class="texture-text">Door</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="danger sign warning caution hazard symbol risk safety" href="textures/T_danger_sign01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_danger_sign01_OPT.webp" alt="danger sign01">
+            <div class="texture-text">Danger Sign</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="ruler" href="textures/T_ruler/T_ruler_albedo.jpg" download>
+            <img loading="lazy" src="web-images/T_ruler_OPT.webp" alt="ruler">
+            <div class="texture-text">Ruler</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="leaf foliage green nature plant vegetation" href="textures/T_leaf01_zip.zip" download>
+            <img loading="lazy" src="web-images/T_leaf01_OPT.webp" alt="leaf01">
+            <div class="texture-text">Leaf</div>
+          </a>
+          
+          <a class="texture-item" data-keywords="hdri sky nature skybox" href="textures/HDRIs/HDRI01.jpg" download>
+            <img loading="lazy" src="web-images/HDRI01_OPT.webp" alt="hdri01">
+            <div class="texture-text">HDRI</div>
+          </a>
+          
           <div style="display: flex; justify-content: center; align-items: center; width: 300px; height: 300px; text-align: center; font-size: 1.2em;">More textures coming soon...</div>
         </div>
       </div>
