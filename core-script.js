@@ -1,3 +1,4 @@
+// Search Function
 document.getElementById('searchInput').addEventListener('input', function()
 {
     const filter = this.value.toLowerCase();
@@ -16,4 +17,51 @@ document.getElementById('searchInput').addEventListener('input', function()
             item.style.display = 'none';
         }
     });
+});
+
+// Get modal elements
+const modal = document.getElementById("modal");
+const pbrIframe = document.getElementById("pbrIframe");
+const downloadButton = document.getElementById("downloadButton");
+const closeBtn = document.querySelector(".modal .close");
+
+// Base URL for the PBR.one viewer
+const githubBaseURL = "https://raw.githubusercontent.com/DaZCDude/ZCs-Spectacular-Textures/main/textures/";
+
+// Add event listener to each texture item
+document.querySelectorAll(".texture-item").forEach(item =>
+{
+    item.addEventListener("click", () =>
+    {
+        const selectedimage = item.getAttribute("data-selectedimage");
+
+        if(selectedimage == null) {return;}
+
+        const iframeSrc = `https://cdn.pbr.one/main/material-shading.html#color_url=${githubBaseURL}${selectedimage}/${selectedimage}_albedo.jpg&normal_url=${githubBaseURL}${selectedimage}/${selectedimage}_normal_opengl.jpg&normal_type=opengl&geometry_type=sphere&watermark_enable=0&gui_enable=-1`;
+
+        pbrIframe.src = iframeSrc;
+        downloadButton.href = `textures/${selectedimage}_zip.zip`;
+
+        modal.style.display = "flex";
+    });
+});
+
+// Close modal on close button click
+closeBtn.addEventListener("click", () =>
+{
+    modal.style.display = "none";
+});
+
+// Close modal on outside click
+window.addEventListener("click", (event) =>
+{
+    if (event.target === modal) {
+        modal.style.display = "none";
+    }
+});
+
+window.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && modal.style.display === 'flex') {
+        modal.style.display = 'none';
+    }
 });
