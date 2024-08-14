@@ -14,6 +14,66 @@
     <link rel="stylesheet" href="core-style.css">
     
     <style>
+      .modal
+      {
+        display: none;
+        position: fixed;
+        z-index: 1000;
+        left: 0;
+        top: 0;
+        width: 100%;
+        height: 100%;
+        overflow: auto;
+        background-color: rgba(0, 0, 0, 0.8);
+        align-items: center;
+        justify-content: center;
+      }
+
+      .modal-content
+      {
+        background-color: #333;
+        padding: 50px;
+        border-radius: 5%;
+        width: 800px;
+        height: 800px;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .modal iframe
+      {
+        width: 100%;
+        height: 100%;
+        border: none;
+        border-radius: 50px;
+      }
+
+      .modal .close
+      {
+        position: absolute;
+        top: 15px;
+        right: 25px;
+        color: #fff;
+        font-size: 30px;
+        cursor: pointer;
+      }
+      .download-button
+      {
+        text-decoration: none;
+        color: #fff;
+        background-color: #222;
+        border-radius: 25px;
+        padding: 10px 20px;
+        transition: background-color .1s;
+        margin-top: 35px;
+      }
+      .download-button:hover
+      {
+        background-color: #444;
+      }
+	
       #searchInput
       {
         border-radius: 10px;
@@ -46,6 +106,7 @@
         overflow: hidden;
         transition: border-radius .1s, transform .2s;
         filter: drop-shadow(0px 5px 5px #111);
+        cursor: pointer;
       }
       .texture-item:hover
       {
@@ -67,26 +128,32 @@
       .texture-text
       {
         position: absolute;
-		bottom: -10px;
-		background-color: rgba(25, 25, 25, 0.70);
-		width: 100%;
-		height: 50px;
-		padding-top: 10px;
-		text-align: center;
-		color: #fff;
-		opacity: 0;
-		transition: opacity .3s;
+        bottom: -10px;
+        background-color: rgba(25, 25, 25, 0.70);
+        width: 100%;
+        height: 50px;
+        padding-top: 10px;
+        text-align: center;
+        color: #fff;
+        opacity: 0;
+        transition: opacity .3s;
       }
-	  .texture-item:hover .texture-text
-	  {
-		opacity: 1;
-	  }
+      .texture-item:hover .texture-text
+      {
+        opacity: 1;
+      }
       
       @media (max-width: 850px)
       {
         #searchInput
         {
           width: 95%;
+        }
+        .modal-content
+        {
+          border-radius: 0%;
+          height: 100%;
+          padding: 50px 10px;
         }
       }
     </style>
@@ -101,47 +168,47 @@
 
       <div class="content">
         <div class="tex-row" id="textureContainer">
-          <a class="texture-item" data-keywords="grass ground lawn turf green vegetation foliage nature surface seamless" href="textures/T_grass01_zip.zip" download>
+          <a class="texture-item" data-keywords="grass ground lawn turf green vegetation foliage nature surface seamless" data-selectedimage="T_grass01">
             <img loading="lazy" src="web-images/T_grass01_OPT.webp" alt="grass01">
             <div class="texture-text">Grass</div>
           </a>
           
-          <a class="texture-item" data-keywords="bricks wall surface building seamless red" href="textures/T_bricks01_zip.zip" download>
+          <a class="texture-item" data-keywords="bricks wall surface building seamless red" data-selectedimage="T_bricks01">
             <img loading="lazy" src="web-images/T_bricks01_OPT.webp" alt="bricks01">
             <div class="texture-text">Red Bricks</div>
           </a>
           
-          <a class="texture-item" data-keywords="wall surface seamless grey gray" href="textures/T_wall01/T_wall01_albedo.jpg" download>
+          <a class="texture-item" data-keywords="wall surface seamless grey gray" data-selectedimage="T_wall01">
             <img loading="lazy" src="web-images/T_wall01_OPT.webp" alt="wall01">
             <div class="texture-text">Grey Wall</div>
           </a>
           
-          <a class="texture-item" data-keywords="wall surface seamless grey gray wallpaper sawdust indoor" href="textures/T_wall02_zip.zip" download>
+          <a class="texture-item" data-keywords="wall surface seamless grey gray wallpaper sawdust indoor" data-selectedimage="T_wall02">
             <img loading="lazy" src="web-images/T_wall02_OPT.webp" alt="wall02">
             <div class="texture-text">Grey Wallpaper</div>
           </a>
           
-          <a class="texture-item" data-keywords="floor surface seamless grey gray white" href="textures/T_floor01_zip.zip" download>
+          <a class="texture-item" data-keywords="floor surface seamless grey gray white" data-selectedimage="T_floor01">
             <img loading="lazy" src="web-images/T_floor01_OPT.webp" alt="floor01">
             <div class="texture-text">Floor</div>
           </a>
           
-          <a class="texture-item" data-keywords="floor surface seamless wall wood tree planks board timber" href="textures/T_wood01_zip.zip" download>
+          <a class="texture-item" data-keywords="floor surface seamless wall wood tree planks board timber" data-selectedimage="T_wood01">
             <img loading="lazy" src="web-images/T_wood01_OPT.webp" alt="wood01">
             <div class="texture-text">Wood Planks</div>
           </a>
           
-          <a class="texture-item" data-keywords="floor surface ground pebble pavement seamless" href="textures/T_pebble_pavement01_zip.zip" download>
+          <a class="texture-item" data-keywords="floor surface ground pebble pavement seamless" data-selectedimage="T_pebble_pavement01">
             <img loading="lazy" src="web-images/T_pebble_pavement01_OPT.webp" alt="pebblepavement01">
             <div class="texture-text">Pebble Pavement</div>
           </a>
           
-          <a class="texture-item" data-keywords="floor surface ground concrete wall moon rock seamless grey gray" href="textures/T_concrete01_zip.zip" download>
+          <a class="texture-item" data-keywords="floor surface ground concrete wall moon rock seamless grey gray" data-selectedimage="T_concrete01">
             <img loading="lazy" src="web-images/T_concrete01_OPT.webp" alt="concrete01">
             <div class="texture-text">Grey Concrete</div>
           </a>
           
-          <a class="texture-item" data-keywords="wall surface fabric bulletin board seamless cloth indoor grey gray" href="textures/T_fabric01_zip.zip" download>
+          <a class="texture-item" data-keywords="wall surface fabric bulletin board seamless cloth indoor grey gray" data-selectedimage="T_fabric01">
             <img loading="lazy" src="web-images/T_fabric01_OPT.webp" alt="fabric01">
             <div class="texture-text">Grey Fabric</div>
           </a>
@@ -186,6 +253,15 @@
           <a class="license" href="LICENSE">© ZC 2024</a>
         </div>
       </footer>
+    </div>
+	
+	<!-- Modal Structure -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <iframe id="pbrIframe" src=""></iframe>
+            <a id="downloadButton" class="download-button" href="" download>Download (ZIP)</a>
+        </div>
     </div>
 
     <!-- Script for Searching -->
