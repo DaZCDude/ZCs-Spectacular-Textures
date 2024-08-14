@@ -16,7 +16,7 @@
     <style>
         p
         {
-            font-size: 20px;
+            font-size: 16px;
             text-align: justify;
         }
         .content
@@ -31,6 +31,24 @@
             display: flex;
             align-items: center;
             gap: 10px;
+        }
+        .plink
+        {
+            color: #fff;
+        }
+        .plink:hover
+        {
+            color: #999;
+        }
+
+        ul
+        {
+            padding-left: 17px;
+            font-size: 16px;
+        }
+        li
+        {
+            padding: 5px 0;
         }
 
         @media (max-width: 850px)
@@ -68,7 +86,7 @@
             <p>
                 After Textures.com started charging for all their textures, I got the idea to create my own texture website.
                 <br><br>
-                And since it's my own, I might as well not include an annoying login button or any crazy JavaScript that makes the website take more than 5 seconds to load.
+                And since it's my own, I might as well not include an annoying login button or any crazy JavaScript that makes the website take more than 5 seconds to load (I might have gone against this when i added PBR previews).
             </p>
 
             <h2>License / Where can I use these textures?</h2>
@@ -82,37 +100,34 @@
             </p>
 
             <h2>Which Normal Map should I use?</h2>
-            <p>
-                Unreal Engine: DirectX
-                <br>
-                Unity: OpenGL
-                <br>
-                Godot: OpenGL
-                <br>
-                Blender: OpenGL
-                <br>
-                Other: Google is your friend :D
-            </p>
+            <ul>
+                <li>Unreal Engine: DirectX</li>
+                <li>Unity: OpenGL</li>
+                <li>Godot: OpenGL</li>
+                <li>Blender: OpenGL</li>
+                <li>Other: Google is your friend :D</li>
+            </ul>
           
             <h2>Can I steal your entire webpage, fill it with ads, and then release it as 'JohnbobAndFriends.net'?</h2>
             <p>
-                I'm using GitHub Pages to host this website from a public GitHub repository.
-                <br>
-                So yeah... I've literally made it easy for you to download the entire webpage, and release it under a different name.
-                <br>
+                I'm using GitHub Pages to host this website from a public GitHub repository, so yeah... I've literally made it easy for you to download the entire webpage, and release it under a different name.
+                <br><br>
                 You can check out the repository here:
             </p>
             <div class="hobbystuff">
                 <a class="button" id="button-alt" href="https://github.com/DaZCDude/ZCs-Spectacular-Textures" target="_blank">GitHub</a>
             </div>
 
+            <br>
             <hr>
           
             <h2>Donations</h2>
-            <p>
+            <p style="margin-bottom: 30px;">
                 I appreciate even the smallest donations, as they help me keep this website up and running without any ads. If you are interested in donating, please consider clicking the 'Buy Me a Coffee' button at the bottom right of the page.
             </p>
             
+            <hr>
+
             <h2>Check out my other stuff</h2>
             <div class="hobbystuff">
                 <a class="button" id="button-alt" href="https://open.spotify.com/artist/7hKn5jDiVLV7DTXKZBiaUj?si=jSBnhgUCQWSXs6WCNTTicA" target="_blank">Spotify</a>
@@ -125,6 +140,14 @@
                 <a class="button" id="button-alt" href="mailto:support@zctextures.com">E-Mail</a>
                 <a class="button" id="button-alt" href="https://discord.gg/aSD2rGegfQ" target="_blank">Discord</a>
             </div>
+
+            <br>
+            <hr>
+
+            <h2>Thanks To</h2>
+            <p>
+                Shoutout to <a href="https://ambientcg.com" target="_blank" class="plink">ambientCG</a> for their <a href="https://pbr.one" target="_blank" class="plink">PBR.ONE</a> toolkit, which is what I'm using for PBR previews.
+            </p>
         </div>
 
         <footer>
