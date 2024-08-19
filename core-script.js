@@ -22,6 +22,7 @@ document.getElementById('searchInput').addEventListener('input', function()
 // Get modal elements
 const modal = document.getElementById("modal");
 const pbrIframe = document.getElementById("pbrIframe");
+const jpgImg = document.getElementById("jpgImg");
 const downloadButton = document.getElementById("downloadButton");
 const closeBtn = document.querySelector(".modal .close");
 
@@ -34,13 +35,31 @@ document.querySelectorAll(".texture-item").forEach(item =>
     item.addEventListener("click", () =>
     {
         const selectedimage = item.getAttribute("data-selectedimage");
+        const isJpeg = item.getAttribute("data-jpeg");
 
-        if(selectedimage == null) {return;}
+        if(isJpeg == "true")
+        {
+            downloadButton.innerHTML = "Download (JPG)";
+            downloadButton.href = `textures/${selectedimage}/${selectedimage}_albedo.jpg`;
 
-        const iframeSrc = `https://cdn.pbr.one/main/material-shading.html#color_url=${githubBaseURL}${selectedimage}/${selectedimage}_albedo.jpg&normal_url=${githubBaseURL}${selectedimage}/${selectedimage}_normal_opengl.jpg&normal_type=opengl&geometry_type=sphere&watermark_enable=0&gui_enable=-1`;
+            jpgImg.src = `textures/${selectedimage}/${selectedimage}_albedo.jpg`;
 
-        pbrIframe.src = iframeSrc;
-        downloadButton.href = `textures/${selectedimage}_zip.zip`;
+            jpgImg.style.display = "block";
+        }
+        else
+        {
+            //Set download button text
+            downloadButton.innerHTML = "Download (ZIP)";
+            //Set download link
+            downloadButton.href = `textures/${selectedimage}_zip.zip`;
+
+            //Set whats shown in the iframe (PBR.ONE render)
+            const iframeSrc = `https://cdn.pbr.one/main/material-shading.html#color_url=${githubBaseURL}${selectedimage}/${selectedimage}_albedo.jpg&normal_url=${githubBaseURL}${selectedimage}/${selectedimage}_normal_opengl.jpg&normal_type=opengl&geometry_type=sphere&watermark_enable=0&gui_enable=-1`;
+            pbrIframe.src = iframeSrc;
+
+            pbrIframe.style.display = "block";
+        }
+        
 
         modal.style.display = "flex";
     });
@@ -50,18 +69,27 @@ document.querySelectorAll(".texture-item").forEach(item =>
 closeBtn.addEventListener("click", () =>
 {
     modal.style.display = "none";
+    jpgImg.style.display = "none";
+    pbrIframe.style.display = "none";
 });
 
 // Close modal on outside click
 window.addEventListener("click", (event) =>
 {
-    if (event.target === modal) {
+    if (event.target === modal)
+    {
         modal.style.display = "none";
+        jpgImg.style.display = "none";
+        pbrIframe.style.display = "none";
     }
 });
 
-window.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && modal.style.display === 'flex') {
+window.addEventListener('keydown', (event) =>
+{
+    if (event.key === 'Escape' && modal.style.display === 'flex')
+    {
         modal.style.display = 'none';
+        jpgImg.style.display = "none";
+        pbrIframe.style.display = "none";
     }
 });
