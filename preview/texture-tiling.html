@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+		<link rel="stylesheet" href="./css/main.css">
+		<title>PBR.ONE Texture Tiling Preview</title>
+	</head>
+	<body>
+		<script type="module" src="./js/views/texture-tiling.js"></script>
+		<main id="renderer_target">
+			<nav>
+				<div class="nav-main-elements">
+					<label pbr1-onlyshowifmultivalued="texture_name" for="texture_url" title="texture_url">Texture</label>
+					<select 
+						onchange="window.PBR1_CHANGE({'texture_index':this.value});"
+						pbr1-onlyshowifmultivalued="texture_name"
+						pbr1-optionsource="texture_name"
+						pbr1-selectedsource="texture_index"
+						id="texture_url"
+						name="texture_url"
+					>
+					</select>
+				</div>
+			</nav>
+			<span class="message-area" id="messageArea"></span>
+		</main>
+	</body>
+</html>
