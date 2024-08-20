@@ -17,8 +17,6 @@ document.getElementById('searchInput').addEventListener('input', function() {
 let selectedimage = ''; // Declare selectedimage globally
 
 // Get modal elements
-const html = document.documentElement;
-const body = document.body;
 const modal = document.getElementById("modal");
 const pbrIframe = document.getElementById("pbrIframe");
 const jpgImg = document.getElementById("jpgImg");
@@ -74,11 +72,6 @@ document.querySelectorAll(".texture-item").forEach(item => {
         }
 
         modal.style.display = "flex";
-
-        //Dont allow scrolling on mobile
-        html.style.overflow-y = "hidden";
-        body.style.overflow-y = "hidden";
-        body.style.position = "relative";
     });
 });
 
@@ -125,8 +118,4 @@ function closeModal()
     modal.style.display = 'none';
     jpgImg.style.display = "none";
     pbrIframe.style.display = "none";
-
-    html.style.overflow-y = "visible";
-    body.style.overflow-y = "visible";
-    body.style.position = "static";
 }
